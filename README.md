@@ -1,16 +1,21 @@
-React + Vite This template provides a minimal setup to get React working in Vite
-with HMR and some ESLint rules.
+# React + Vite
 
-Currently, two official plugins are available:
-
-@vitejs/plugin-react uses Babel for Fast Refresh @vitejs/plugin-react-swc uses
-SWC for Fast Refresh Установленные библиотеки:
+Установленные библиотеки:
 
 - npm create vite@latest
+- npm i
 - npm install clsx
 - npm install modern-normalize
 - npm install react-icons
 - npm install -g react-devtools
 - npm i react-devtools
+- npm i nanoid
 - npm install formik
 - npm install yup
+- npm install axios
+- npm install react-spinners
+- npm install react-modal
+- npm install react-hot-toast
+- npm i react-router-dom
+- npm install @reduxjs/toolkit
+- npm install react-redux
