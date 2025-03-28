@@ -1,32 +1,44 @@
 import css from './SearchBox.module.css';
-import { useId } from 'react';
+import { Formik, Form, Field } from 'formik';
 
-const SearchBox = ({ value, onFilter }) => {
-  const id = useId();
-  const handleClear = () => {
-    onFilter('');
+import { useDispatch } from 'react-redux';
+import { contactFilter } from '../../redux/filtersSlice';
+
+const SearchBox = () => {
+  const dispatch = useDispatch();
+
+  // const handleClear = () => {
+  //   contactFilter('');
+  // };
+  const handleSubmit = e => {
+    const filterAction = contactFilter(e.target.value);
+    dispatch(filterAction);
   };
 
   return (
-    <div className={css.container}>
-      <label className={css.text} htmlFor={id}>
-        Find contact by name
-      </label>
-      <input
-        className={css.input}
-        type="text"
-        name="search"
-        id={id}
-        value={value}
-        onChange={evt => onFilter(evt.target.value)}
-      />
-      {value && (
-        <button type="button" className={css.clearButton} onClick={handleClear}>
-          Clear
-        </button>
-      )}
-    </div>
+    <>
+      <Formik>
+        <Form className={css.container}>
+          <label className={css.text} htmlFor="username">
+            Find contact by name
+          </label>
+          <Field
+            className={css.input}
+            type="text"
+            name="username"
+            onChange={handleSubmit}
+          ></Field>
+
+          {/* <button
+            type="button"
+            className={css.clearButton}
+            onClick={handleClear}
+          >
+            Clear
+          </button> */}
+        </Form>
+      </Formik>
+    </>
   );
-  resetForm(value);
 };
 export default SearchBox;
